@@ -1,0 +1,11 @@
+show databases;
+create database restaurant;
+use restaurant;
+show tables;
+create table chef(name char(10),chef_id int primary key not null,salary float);
+create table supplier(name char(10),supplier_id int primary key not null,city char(10),phone int);
+create table ingredients(name char(10), integrients_id int primary key not null,description char(50));
+create table meal(name char(10),meal_id int primary key not null,price int);
+create table customer(name char(10),customer_id int primary key not null,phone int,address char(100));
+create table waiter(name char(10),waiter_id int primary key not null,salary float);
+create table orders(order_id int primary key not null,customer_id int,meal_id int);
