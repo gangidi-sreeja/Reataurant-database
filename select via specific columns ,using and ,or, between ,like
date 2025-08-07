@@ -1,0 +1,14 @@
+select order_id from orders where meal_id between 1001 and 1005;
+select name,address from customer where name like 's%';
+select chef_id,name from chef where salary>25000 and name like'%a%';
+select name,description from integrients where name like'%s' or name like '%i%';
+select name,description from integrients where name like'%s' or name like '%i%' order by name asc;
+select name,price from meal where meal_id like '100%' ;
+select name,price from meal where meal_id like '100%' order by price dec ;
+select customer_id,name,phone from customer where name like'y%' or name like'%y' and phone like'9%';
+
+
+
+
+
+
