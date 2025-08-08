@@ -1,0 +1,16 @@
+select sum(salary) from waiter;
+select count(name) from customer where name like'y%' or name like'%y' and phone like'9%';
+select count(*) from meal where meal_id like '100%';
+select avg(salary) from chef;
+select order_id, name,price from orders,meal where orders.meal_id=meal.meal_id;
+select order_id, name,price from orders,meal where orders.meal_id=meal.meal_id order by price desc;
+select name,order_id from customer,orders where customer.customer_id=orders.customer_id group by order_id;
+select min(price) from meal where meal_id;
+select max(price) from meal where meal_id;
+select max(price) from meal where meal_id>1005;
+select min(price) from meal where meal_id>1005;
+select min(price) from meal where meal_id<1005;
+select count(price) as bill from orders,meal where orders.meal_id=meal.meal_id group by price;
+select count(price) from orders,meal where orders.meal_id=meal.meal_id;
+select sum(price) from orders,meal where orders.meal_id=meal.meal_id;
+select avg(price) from orders,meal where orders.meal_id=meal.meal_id;
