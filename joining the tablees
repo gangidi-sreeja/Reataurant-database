@@ -1,0 +1,22 @@
+joining 2 tables;
+ inner join
+select * from orders inner join customer where orders.customer_id=customer.customer_id ;
+select orders.order_id,customer.customer_id,customer.name from orders inner join customer where orders.customer_id=customer.customer_id ;
+  left join 
+select * from customer left outer join orders on orders.customer_id= customer.customer_id;
+select orders.order_id,customer.customer_id from customer left outer join orders on orders.customer_id= customer.customer_id;
+  right join
+select * from customer right outer join orders on orders.customer_id= customer.customer_id;
+select orders.order_id,customer.customer_id from customer right outer join orders on orders.customer_id= customer.customer_id;
+  cross join
+select * from meal cross join orders where meal.meal_id=orders.meal_id;
+select customer.name,orders.order_id from customer cross join orders where orders.customer_id=customer.customer_id;
+  full outer join
+select orders.order_id from customer.name full outer join orders on customer.customer_id=orders.customer_id;
+
+joining 3 tables
+
+select orders.order_id,customer.name,meal.name,meal.price from ((meal inner join orders where meal.meal_id=orders.meal_id) inner join customer where orders.customer_id=customer.customer_id);
+
+
+
