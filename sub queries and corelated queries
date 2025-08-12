@@ -1,0 +1,12 @@
+select name,price from meal m where price>(select avg(price) from meal);// fetch the menu  where the meal price is greater than average price
+select name,price from meal m where price>(select avg(price) from meal where meal.price=m.price);//fetch the menu  where the meal price is greater than average price
+select name from chef c where name in(select name from chef where name like '%a');//find the chefs whose name ends with a
+select name from chef c where name=(select name from chef where name like '%a');//find the chefs whose name ends with a
+select name ,price from meal m where price not in(select price where name like '%soup');find the meal items which does not include soups
+select name ,price from meal m where price in(select price where name like '%soup');//find the  soups from meal  
+select *from meal m where name in(select name from meal cross join orders where meal.meal_id=orders.meal_id);
+select name,price from meal m where price not in(select max(price) from meal inner join orders);
+select name,price from meal m where  not exists (select max(price) from meal inner join orders);
+select name,price from meal m where exists (select max(price) from meal inner join orders);
+select name,price from meal m where  not exists (select min(price) from meal inner join orders);
+select name,price from meal m where exists (select min(price) from meal inner join orders);
