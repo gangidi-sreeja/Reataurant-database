@@ -1,0 +1,13 @@
+use restaurant;
+create view chefnames as select name, chef_id from chef;
+select * from chefnames;
+create view chefsalary as select chef_id,salary from chef where salary>25000;
+select * from chefsalary;
+create view menu as select name, price from meal;
+select * from menu;
+create view bill as select orders.order_id,customer.customer_id,meal.name,price from customer inner join orders on customer.customer_id=orders.customer_id  inner join meal where orders.meal_id=meal.meal_id;	
+select * from bill;
+select customer_id,sum(price) as total from bill where customer_id=205; 
+select customer_id,sum(price) as total from bill group by customer_id;
+drop view bills;
+create view bills as select orders.order_id,customer.customer_id,meal.name,sum(price)as total from customer inner join orders on customer.customer_id=orders.customer_id  inner join meal where orders.meal_id=meal.meal_id group by customer.customer_id;
