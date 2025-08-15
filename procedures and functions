@@ -1,0 +1,38 @@
+CREATE  PROCEDURE `c2`()
+BEGIN
+  select * from chef where salary=csalary;
+END
+call c2(); // (screenshot 2)
+CREATE  PROCEDURE `c1`(in csalary float)
+BEGIN
+  select name from chef where salary=csalary;
+END  
+call c1(25000); //(screen shot 1 out put)
+CREATE DEFINER=`sreeja`@`%` PROCEDURE `c3`(in csalary float)
+BEGIN
+select name from chef where salary=csalary;
+END
+call c3(30000); // (screen shot 3 as out put)
+CREATE PROCEDURE c4(inout cname char(10),in csalary float)
+begin
+  select name into cname from chef;
+end
+call c4(@rohit,25000); // (screenshot 4 as output )
+create procedure m1(out mprice float)
+begin
+select price into mprice from meal where price=mprice;
+end//
+set @price=100;
+call m1(@price);
+select @price; //(screenshot 5)
+// CREATING FUNCTION //
+CREATE FUNCTION getaverageprice(@aprice FLOAT)
+RETURNS FLOAT
+BEGIN
+    DECLARE averageprice FLOAT;
+    SELECT @averageprice = AVG(price)
+    FROM meal
+    WHERE price >@aprice;
+    RETURN @averageprice;
+END;
+SELECT dbo.getaverageprice(100);
